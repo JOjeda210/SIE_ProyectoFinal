@@ -1,0 +1,95 @@
+.login-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+  height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+}
+
+.image-column {
+  background-color: #F4E7E1; /* El color más claro de la paleta */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+  padding-right: 2px; /* Pequeña línea de separación */
+}
+
+.university-logo {
+  width: calc(100% - 2px);
+  height: calc(100% - 4px);
+  object-fit: cover;
+  margin: 2px 0 2px 2px;
+}
+
+.form-column {
+  background-color: #fff; /* Fondo blanco para el formulario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+}
+
+.upqroo-logo {
+  max-width: 120px;
+  max-height: 80px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.form-column h2 {
+text-align: center;
+margin-bottom: 2rem;
+color: #D5451B; /* Uno de los tonos naranja para el título */
+}
+
+.login-form {
+display: flex;
+flex-direction: column;
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: bold;
+color: #521C0D; /* El color más oscuro para las etiquetas */
+}
+
+.form-group input {
+width: 100%;
+padding: 0.75rem;
+border: 1px solid #FF9B45; /* Un tono naranja para el borde del input */
+border-radius: 4px;
+font-size: 1rem;
+box-sizing: border-box;
+}
+
+.form-group input:focus {
+outline: none;
+border-color: #D5451B; /* Un tono naranja más fuerte para el focus /
+box-shadow: 0 0 5px rgba(213, 69, 27, 0.3); / Sombra del focus con tono naranja */
+}
+
+.login-btn {
+background-color: #FF9B45; /* Un tono naranja para el botón */
+color: white;
+padding: 0.75rem 1.5rem;
+border: none;
+border-radius: 4px;
+font-size: 1rem;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+background-color: #D5451B; /* Un tono naranja más oscuro al pasar el ratón */
+}
+
+.login-btn:active {
+background-color: #521C0D; /* El color más oscuro al hacer clic */
+}
