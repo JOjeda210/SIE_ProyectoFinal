@@ -1,0 +1,37 @@
+<div class="page-layout">
+  <app-navbar></app-navbar>
+
+  <div class="main-content">
+    <app-header></app-header>
+    <div class="content-area">
+      <div class="kardex-container">
+        <h2>Historial Académico (Kardex)</h2>
+        
+        <div *ngFor="let semestre of semestres" class="card">
+          <div class="card-header">
+            <h3>Cuatrimestre {{ semestre.cuatrimestre }}</h3>
+          </div>
+          <div class="card-body">
+            <table class="materias-table">
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Calificación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let materia of semestre.materias">
+                  <td>{{ materia.nombre }}</td>
+                  <td>{{ materia.calificacion }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón mobile menu -->
+  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>

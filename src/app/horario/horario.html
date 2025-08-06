@@ -1,0 +1,114 @@
+<div class="page-layout">
+  <app-navbar></app-navbar>
+  
+  <div class="main-content">
+    <app-header></app-header>
+    
+    <div class="content-area">
+      <!-- Información del estudiante -->
+      <div class="estudiante-info-card">
+        <div class="card-header">
+          <h3>Información del Estudiante</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Nombre:</span>
+            <span class="value">{{ estudiante.nombre }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Número de Control:</span>
+            <span class="value">{{ estudiante.numeroControl }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Carrera:</span>
+            <span class="value">{{ estudiante.carrera }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Cuatrimestre:</span>
+            <span class="value">{{ estudiante.cuatrimestre }}</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Horario de Clases - Cuatrimestre {{ estudiante.cuatrimestre }}</h2>
+
+      <!-- Horario de clases -->
+      <div class="horario-card">
+        <div class="card-header">
+          <h3>Horario Semanal</h3>
+          <div class="horario-info">
+            <span class="dia-actual" *ngIf="getDiaActual() !== 'Sábado' && getDiaActual() !== 'Domingo'">
+              Hoy es {{ getDiaActual() }}
+            </span>
+            <span class="clase-actual" *ngIf="getClaseActual()">
+              Clase actual: {{ getClaseActual()?.materia }}
+            </span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="horario-grid">
+            <div *ngFor="let diaHorario of horario" 
+                 class="dia-container" 
+                 [class.dia-actual]="esDiaActual(diaHorario.dia)">
+              
+              <div class="dia-header">
+                <h4>{{ diaHorario.dia }}</h4>
+                <span class="indicador-dia" *ngIf="esDiaActual(diaHorario.dia)">HOY</span>
+              </div>
+
+              <div class="clases-container">
+                <div *ngFor="let clase of diaHorario.clases" 
+                     class="clase-item"
+                     [class.clase-actual]="esClaseActual(clase)">
+                  
+                  <div class="clase-hora">
+                    <i class="icon-clock"></i>
+                    {{ clase.hora }}
+                  </div>
+                  
+                  <div class="clase-info">
+                    <div class="materia-nombre">{{ clase.materia }}</div>
+                    <div class="profesor-nombre">{{ clase.profesor }}</div>
+                    <div class="aula-info">
+                      <i class="icon-location"></i>
+                      {{ clase.aula }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumen del horario -->
+      <div class="resumen-card">
+        <div class="card-header">
+          <h3>Resumen de Horario</h3>
+        </div>
+        <div class="resumen-stats">
+          <div class="stat-item">
+            <div class="stat-value">20</div>
+            <div class="stat-label">Horas/Semana</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Días</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">6</div>
+            <div class="stat-label">Materias</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">14:00-20:00</div>
+            <div class="stat-label">Horario</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón mobile menu -->
+  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>

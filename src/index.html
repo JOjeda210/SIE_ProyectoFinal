@@ -1,13 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>SIETopicos</title>
+  <title>SIE - Sistema de Información Estudiantil</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema de Información Estudiantil - Universidad Politécnica de Querétaro">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
+  
+  <script>
+    // Función para toggle del navbar mobile
+    function toggleMobileMenu() {
+      const navbar = document.querySelector('app-navbar');
+      if (navbar) {
+        navbar.classList.toggle('navbar-visible');
+      }
+    }
+  </script>
 </body>
 </html>

@@ -10,4 +10,81 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Layout principal para todas las páginas con navbar */
+.page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F4E7E1;
+}
+
+/* Estilos globales para el navbar */
+app-navbar {
+  width: 280px;
+  background-color: #521C0D;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header area */
+app-header {
+  height: 80px;
+  background-color: #FF9B45;
+  color: #521C0D;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Content area */
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .page-layout {
+    flex-direction: column;
+    padding-bottom: 60px; /* Espacio para navbar mobile */
+  }
+  
+  app-navbar {
+    width: 100%;
+    order: 2; /* Mueve el navbar al final */
+  }
+  
+  .main-content {
+    width: 100%;
+    order: 1;
+  }
+  
+  .content-area {
+    padding: 1rem;
+    max-height: calc(100vh - 140px); /* Header + navbar mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  app-header {
+    padding: 0 1rem;
+    height: 70px;
+  }
+  
+  .content-area {
+    padding: 0.75rem;
+    max-height: calc(100vh - 130px);
+  }
 }

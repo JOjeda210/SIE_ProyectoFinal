@@ -3,11 +3,11 @@
     <h3>SIE</h3>
   </div>
   <ul class="navbar-menu">
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Kardex</a></li>
-    <li><a href="#">Calificaciones</a></li>
-    <li><a href="#">Horario</a></li>
-    <li><a href="#">Mensajes</a></li>
-    <li><a href="#">Cerrar Sesión</a></li>
+    <li><a routerLink="/dashboard">Dashboard</a></li>
+    <li><a routerLink="/kardex">Kardex</a></li>
+    <li><a routerLink="/calificaciones">Calificaciones</a></li>
+    <li><a routerLink="/horario">Horario</a></li>
+    <li><a routerLink="/mensajes">Mensajes</a></li>
+    <li><a (click)="cerrarSesion()" style="cursor: pointer;">Cerrar Sesión</a></li>
   </ul>
 </nav>

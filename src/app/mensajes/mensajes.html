@@ -1,0 +1,184 @@
+<div class="page-layout">
+  <app-navbar></app-navbar>
+  
+  <div class="main-content">
+    <app-header></app-header>
+    
+    <div class="content-area">
+      <!-- Información del estudiante -->
+      <div class="estudiante-info-card">
+        <div class="card-header">
+          <h3>Centro de Mensajes</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Estudiante:</span>
+            <span class="value">{{ estudiante.nombre }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Número de Control:</span>
+            <span class="value">{{ estudiante.numeroControl }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Carrera:</span>
+            <span class="value">{{ estudiante.carrera }}</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Bandeja de Mensajes</h2>
+
+      <!-- Estadísticas de mensajes -->
+      <div class="estadisticas-card">
+        <div class="estadisticas-grid">
+          <div class="stat-item">
+            <div class="stat-value">{{ getContadores().total }}</div>
+            <div class="stat-label">Total</div>
+          </div>
+          <div class="stat-item no-leidos">
+            <div class="stat-value">{{ getContadores().noLeidos }}</div>
+            <div class="stat-label">Sin Leer</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">{{ getContadores().academicos }}</div>
+            <div class="stat-label">Académicos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">{{ getContadores().administrativos }}</div>
+            <div class="stat-label">Administrativos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros y búsqueda -->
+      <div class="filtros-card">
+        <div class="card-header">
+          <h3>Filtros</h3>
+          <button class="btn-limpiar" (click)="limpiarFiltros()">Limpiar Filtros</button>
+        </div>
+        <div class="filtros-container">
+          <div class="filtro-grupo">
+            <label for="busqueda">Buscar:</label>
+            <input 
+              type="text" 
+              id="busqueda" 
+              [(ngModel)]="busqueda" 
+              placeholder="Buscar por asunto, remitente o contenido..."
+              class="input-busqueda">
+          </div>
+          
+          <div class="filtro-grupo">
+            <label for="filtroTipo">Tipo:</label>
+            <select id="filtroTipo" [(ngModel)]="filtroTipo" class="select-filtro">
+              <option value="todos">Todos los tipos</option>
+              <option value="academico">Académicos</option>
+              <option value="administrativo">Administrativos</option>
+              <option value="biblioteca">Biblioteca</option>
+              <option value="beca">Becas</option>
+            </select>
+          </div>
+          
+          <div class="filtro-grupo">
+            <label for="filtroLeido">Estado:</label>
+            <select id="filtroLeido" [(ngModel)]="filtroLeido" class="select-filtro">
+              <option value="todos">Todos</option>
+              <option value="no_leidos">Sin leer</option>
+              <option value="leidos">Leídos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de mensajes -->
+      <div class="mensajes-card" *ngIf="!mensajeSeleccionado">
+        <div class="card-header">
+          <h3>Mensajes ({{ getMensajesFiltrados().length }})</h3>
+        </div>
+        
+        <div class="mensajes-lista">
+          <div 
+            *ngFor="let mensaje of getMensajesFiltrados()" 
+            class="mensaje-item"
+            [class.no-leido]="!mensaje.leido"
+            [class]="getClasePrioridad(mensaje.prioridad)"
+            (click)="seleccionarMensaje(mensaje)">
+            
+            <div class="mensaje-header">
+              <div class="remitente-info">
+                <div class="remitente-nombre">{{ mensaje.remitente }}</div>
+                <div class="remitente-cargo">{{ mensaje.cargo }}</div>
+              </div>
+              
+              <div class="mensaje-meta">
+                <span class="tipo-badge" [class]="getClaseTipo(mensaje.tipo)">
+                  {{ mensaje.tipo }}
+                </span>
+                <span class="fecha">{{ formatearFecha(mensaje.fecha) }}</span>
+                <button 
+                  class="btn-leido"
+                  [class.activo]="mensaje.leido"
+                  (click)="toggleLeido(mensaje, $event)"
+                  [title]="mensaje.leido ? 'Marcar como no leído' : 'Marcar como leído'">
+                  {{ mensaje.leido ? '📖' : '📧' }}
+                </button>
+              </div>
+            </div>
+            
+            <div class="mensaje-asunto">{{ mensaje.asunto }}</div>
+            
+            <div class="mensaje-preview">
+              {{ mensaje.mensaje.substring(0, 150) }}...
+            </div>
+          </div>
+          
+          <div *ngIf="getMensajesFiltrados().length === 0" class="no-mensajes">
+            <div class="no-mensajes-icon">📭</div>
+            <div class="no-mensajes-texto">No se encontraron mensajes con los filtros aplicados</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vista detallada del mensaje -->
+      <div class="mensaje-detalle-card" *ngIf="mensajeSeleccionado">
+        <div class="card-header">
+          <h3>{{ mensajeSeleccionado.asunto }}</h3>
+          <button class="btn-cerrar" (click)="cerrarMensaje()">✕</button>
+        </div>
+        
+        <div class="mensaje-detalle-contenido">
+          <div class="mensaje-detalle-header">
+            <div class="detalle-remitente">
+              <div class="remitente-nombre">{{ mensajeSeleccionado.remitente }}</div>
+              <div class="remitente-cargo">{{ mensajeSeleccionado.cargo }}</div>
+            </div>
+            
+            <div class="detalle-meta">
+              <div class="detalle-fecha">{{ formatearFecha(mensajeSeleccionado.fecha) }}</div>
+              <div class="detalle-badges">
+                <span class="tipo-badge" [class]="getClaseTipo(mensajeSeleccionado.tipo)">
+                  {{ mensajeSeleccionado.tipo }}
+                </span>
+                <span class="prioridad-badge" [class]="getClasePrioridad(mensajeSeleccionado.prioridad)">
+                  {{ mensajeSeleccionado.prioridad }}
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mensaje-texto">
+            {{ mensajeSeleccionado.mensaje }}
+          </div>
+          
+          <div class="mensaje-acciones">
+            <button class="btn-responder">Responder</button>
+            <button class="btn-archivar">Archivar</button>
+            <button class="btn-importante">Marcar Importante</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón mobile menu -->
+  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>

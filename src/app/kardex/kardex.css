@@ -1,0 +1,57 @@
+/* Estilos específicos para el componente de kardex */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Contenedor principal se maneja desde styles.css globales */
+
+h2 {
+  color: #521C0D;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.card-header {
+  background-color: #FF9B45;
+  color: white;
+  padding: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.materias-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.materias-table th, .materias-table td {
+  text-align: left;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ddd;
+  color: #521C0D;
+}
+
+.materias-table th {
+  font-weight: bold;
+}
+
+.materias-table tbody tr:last-child td {
+  border-bottom: none;
+}

@@ -1,0 +1,337 @@
+/* Estilos específicos para el componente de horario */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Los estilos de layout principales se manejan desde styles.css globales */
+
+/* Título principal */
+h2 {
+  color: #521C0D;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Estilos para la tarjeta de información del estudiante */
+.estudiante-info-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(82, 28, 13, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.estudiante-info-card .card-header {
+  background-color: #521C0D;
+  color: white;
+  padding: 1.5rem;
+}
+
+.estudiante-info-card .card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 8px;
+  border-left: 4px solid #FF9B45;
+}
+
+.info-item .label {
+  font-weight: 600;
+  color: #521C0D;
+}
+
+.info-item .value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Título principal */
+h2 {
+  color: #521C0D;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Estilos para la tarjeta de horario */
+.horario-card {
+  background-color: #F4E7E1;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(82, 28, 13, 0.15);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.horario-card .card-header {
+  background-color: #FF9B45;
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.horario-card .card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.horario-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.dia-actual {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.clase-actual {
+  background-color: #521C0D;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Grid del horario */
+.horario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.dia-container {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dia-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dia-container.dia-actual {
+  border: 3px solid #D5451B;
+  box-shadow: 0 5px 20px rgba(213, 69, 27, 0.3);
+}
+
+.dia-header {
+  background-color: #521C0D;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dia-actual .dia-header {
+  background-color: #D5451B;
+}
+
+.dia-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.indicador-dia {
+  background-color: #FF9B45;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.clases-container {
+  padding: 1rem;
+}
+
+.clase-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.clase-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.clase-item:hover {
+  background-color: #f8f9fa;
+}
+
+.clase-item.clase-actual {
+  background-color: #fff3cd;
+  border: 2px solid #FF9B45;
+  box-shadow: 0 2px 8px rgba(255, 155, 69, 0.3);
+}
+
+.clase-hora {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #521C0D;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-clock::before {
+  content: '🕒';
+  margin-right: 0.3rem;
+}
+
+.clase-info .materia-nombre {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.clase-info .profesor-nombre {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.aula-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #D5451B;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.icon-location::before {
+  content: '📍';
+  margin-right: 0.2rem;
+}
+
+/* Estilos para la tarjeta de resumen */
+.resumen-card {
+  background-color: #F4E7E1;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(82, 28, 13, 0.1);
+  overflow: hidden;
+}
+
+.resumen-card .card-header {
+  background-color: #521C0D;
+  color: white;
+  padding: 1.5rem;
+}
+
+.resumen-card .card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.resumen-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background-color: white;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D5451B;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #521C0D;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .horario-container {
+    padding: 1rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .horario-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .horario-card .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .horario-info {
+    align-items: flex-start;
+  }
+  
+  .resumen-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .stat-item {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+}

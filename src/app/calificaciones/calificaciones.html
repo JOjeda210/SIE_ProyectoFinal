@@ -1,0 +1,98 @@
+<div class="page-layout">
+  <app-navbar></app-navbar>
+
+  <div class="main-content">
+    <!-- Header de la página -->
+    <app-header></app-header>
+    
+    <!-- Área de contenido principal -->
+    <div class="content-area">
+      <div class="calificaciones-container">
+        
+        <!-- Información del alumno -->
+        <div class="alumno-info-card">
+          <div class="card-header">
+            <h3>Información del Estudiante</h3>
+          </div>
+          <div class="card-body">
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="label">Nombre:</span>
+                <span class="value">{{ datosAlumno.nombreCompleto }}</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Número de Control:</span>
+                <span class="value">{{ datosAlumno.numeroControl }}</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Carrera:</span>
+                <span class="value">{{ datosAlumno.carrera }}</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Cuatrimestre:</span>
+                <span class="value">{{ datosAlumno.cuatrimestre }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Título principal -->
+        <h2>Calificaciones - Cuatrimestre {{ datosAlumno.cuatrimestre }}</h2>
+
+        <!-- Tarjeta de calificaciones -->
+        <div class="calificaciones-card">
+          <div class="card-header">
+            <h3>Materias y Calificaciones</h3>
+          </div>
+          <div class="card-body">
+            
+            <!-- Tabla de calificaciones -->
+            <div class="table-container">
+              <table class="calificaciones-table">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Materia</th>
+                    <th>Créditos</th>
+                    <th>Calificación</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let materia of materias" [class.aprobada]="materia.calificacion >= 70">
+                    <td class="codigo">{{ materia.codigo }}</td>
+                    <td class="materia-nombre">{{ materia.nombre }}</td>
+                    <td class="creditos">{{ materia.creditos }}</td>
+                    <td class="calificacion">{{ materia.calificacion }}</td>
+                    <td class="estado">
+                      <span class="estado-badge" [class.aprobada]="materia.calificacion >= 70">
+                        {{ materia.estado }}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Resumen de calificaciones -->
+            <div class="resumen-container">
+              <div class="resumen-item">
+                <span class="resumen-label">Total de Créditos:</span>
+                <span class="resumen-value">{{ totalCreditos }}</span>
+              </div>
+              <div class="resumen-item">
+                <span class="resumen-label">Promedio General:</span>
+                <span class="resumen-value destacado">{{ promedioGeneral }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón mobile menu -->
+  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>
