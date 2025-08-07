@@ -29,6 +29,8 @@ export class DashboardComponent {
   }
 
   modificarDatos(): void {
-    alert('Has hecho clic en el botón de Modificar Datos');
+    // Aquí se implementaría la lógica para abrir un modal o redirigir a una página de edición
+    console.log('Abriendo editor de datos del estudiante...');
+    alert('Funcionalidad de edición de datos en desarrollo. Pronto estará disponible.');
   }
 }
