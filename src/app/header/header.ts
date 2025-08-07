@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header {
+export class Header { // Inyección de dependencias 
   constructor(private router: Router) {}
 
   get pageTitle(): string {
