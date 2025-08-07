@@ -277,7 +277,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 👥 Autores
 
-- **Jesús Eduardo Ojeda Ochoa** - *Desarrollo Full Stack* - [JOjeda210](https://github.com/JOjeda210)
+- **Jesús Osbaldo Ojeda Aké** - *Desarrollador backend* - [JOjeda210](https://github.com/JOjeda210)
 
 ## 🏫 Universidad
 
