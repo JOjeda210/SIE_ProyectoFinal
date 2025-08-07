@@ -1,0 +1,421 @@
+/* Estilos para el componente de Pago de Servicios */
+:host {
+  display: block;
+}
+
+/* Header Section */
+.header-section {
+  margin-bottom: 2rem;
+}
+
+.page-title h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #521C0D;
+}
+
+.page-title p {
+  margin: 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.resumen-card {
+  background: linear-gradient(135deg, #521C0D 0%, #D5451B 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  color: white;
+  box-shadow: 0 8px 32px rgba(82, 28, 13, 0.3);
+}
+
+.resumen-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.resumen-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resumen-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.resumen-valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.resumen-valor.adeudo {
+  color: #FFE4E1;
+}
+
+.resumen-valor.pendientes {
+  color: #FF9B45;
+}
+
+/* Vista Tabs */
+.vista-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #F4E7E1;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  color: #D5451B;
+  background: rgba(213, 69, 27, 0.1);
+}
+
+.tab-btn.active {
+  color: #521C0D;
+  border-bottom-color: #D5451B;
+  background: rgba(255, 155, 69, 0.1);
+}
+
+/* Servicios Container */
+.servicios-container {
+  margin-bottom: 2rem;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Servicio Cards */
+.servicio-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid #FF9B45;
+}
+
+.servicio-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-card.estado-vencido {
+  border-left-color: #DC2626;
+  background: #FEF2F2;
+}
+
+.servicio-card.estado-pagado,
+.servicio-card.pagado {
+  border-left-color: #10B981;
+  background: #F0FDF4;
+}
+
+/* Servicio Header */
+.servicio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 155, 69, 0.1);
+  border-bottom: 1px solid #F4E7E1;
+}
+
+.servicio-tipo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tipo-icon {
+  font-size: 1.5rem;
+}
+
+.tipo-texto {
+  font-weight: 600;
+  color: #521C0D;
+  text-transform: capitalize;
+}
+
+/* Estado Badge */
+.estado-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estado-badge.estado-pendiente {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.estado-badge.estado-vencido {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.estado-badge.estado-pagado {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+/* Servicio Body */
+.servicio-body {
+  padding: 1.5rem;
+}
+
+.servicio-concepto {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #521C0D;
+  line-height: 1.3;
+}
+
+.servicio-detalles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.detalle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detalle-label {
+  font-weight: 500;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.detalle-valor {
+  font-weight: 600;
+  color: #333;
+}
+
+.detalle-valor.monto {
+  color: #D5451B;
+  font-size: 1.1rem;
+}
+
+.detalle-valor.referencia {
+  font-family: 'Courier New', monospace;
+  background: #F3F4F6;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Servicio Actions */
+.servicio-actions {
+  padding: 1rem 1.5rem;
+  background: #F9FAFB;
+  border-top: 1px solid #F4E7E1;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.action-btn.pagar-btn {
+  background: linear-gradient(135deg, #521C0D 0%, #D5451B 100%);
+  color: white;
+}
+
+.action-btn.pagar-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(82, 28, 13, 0.4);
+}
+
+.action-btn.pagar-btn:disabled {
+  background: #9CA3AF;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.action-btn.download-btn {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: white;
+}
+
+.action-btn.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #521C0D;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.info-header {
+  background: linear-gradient(135deg, #FF9B45 0%, #D5451B 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.info-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info-content {
+  padding: 1.5rem;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #F4E7E1;
+  color: #333;
+  line-height: 1.5;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 1.8rem;
+  }
+  
+  .resumen-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .resumen-valor {
+    font-size: 1.5rem;
+  }
+  
+  .vista-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .tab-btn {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    text-align: left;
+  }
+  
+  .tab-btn.active {
+    border-bottom: none;
+    border-left-color: #D5451B;
+  }
+  
+  .servicios-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .servicio-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  
+  .detalle-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicio-body {
+    padding: 1rem;
+  }
+  
+  .servicio-actions {
+    padding: 0.8rem 1rem;
+  }
+  
+  .action-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .info-content {
+    padding: 1rem;
+  }
+}

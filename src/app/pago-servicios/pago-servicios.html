@@ -1,0 +1,177 @@
+<div class="page-layout">
+  <app-navbar></app-navbar>
+
+  <div class="main-content">
+    <app-header></app-header>
+    
+    <div class="content-area">
+      <!-- Header Section -->
+      <div class="header-section">
+        <div class="page-title">
+          <h1>💳 Pago de Servicios</h1>
+          <p>Gestiona tus pagos y consulta tu historial financiero</p>
+        </div>
+        
+        <!-- Resumen de adeudos -->
+        <div class="resumen-card">
+          <div class="resumen-content">
+            <div class="resumen-item">
+              <span class="resumen-label">Total Adeudos:</span>
+              <span class="resumen-valor adeudo">${{ totalAdeudo.toFixed(2) }}</span>
+            </div>
+            <div class="resumen-item">
+              <span class="resumen-label">Servicios Pendientes:</span>
+              <span class="resumen-valor pendientes">{{ serviciosPendientes.length }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navegación de vistas -->
+      <div class="vista-tabs">
+        <button 
+          class="tab-btn" 
+          [class.active]="vistaActual === 'pendientes'"
+          (click)="cambiarVista('pendientes')">
+          🔔 Servicios Pendientes
+        </button>
+        <button 
+          class="tab-btn" 
+          [class.active]="vistaActual === 'historial'"
+          (click)="cambiarVista('historial')">
+          📋 Historial de Pagos
+        </button>
+      </div>
+
+      <!-- Vista de Servicios Pendientes -->
+      <div class="servicios-container" *ngIf="vistaActual === 'pendientes'">
+        <div class="servicios-grid">
+          <div 
+            class="servicio-card" 
+            *ngFor="let servicio of serviciosPendientes"
+            [class]="getEstadoClass(servicio.estado)">
+            
+            <div class="servicio-header">
+              <div class="servicio-tipo">
+                <span class="tipo-icon">{{ getTipoIcon(servicio.tipo) }}</span>
+                <span class="tipo-texto">{{ servicio.tipo | titlecase }}</span>
+              </div>
+              <div class="servicio-estado">
+                <span class="estado-badge" [class]="getEstadoClass(servicio.estado)">
+                  {{ servicio.estado | titlecase }}
+                </span>
+              </div>
+            </div>
+
+            <div class="servicio-body">
+              <h3 class="servicio-concepto">{{ servicio.concepto }}</h3>
+              <div class="servicio-detalles">
+                <div class="detalle-item">
+                  <span class="detalle-label">Monto:</span>
+                  <span class="detalle-valor monto">${{ servicio.monto.toFixed(2) }}</span>
+                </div>
+                <div class="detalle-item">
+                  <span class="detalle-label">Vencimiento:</span>
+                  <span class="detalle-valor">{{ servicio.fechaVencimiento }}</span>
+                </div>
+                <div class="detalle-item">
+                  <span class="detalle-label">Periodo:</span>
+                  <span class="detalle-valor">{{ servicio.periodo }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="servicio-actions">
+              <button 
+                class="action-btn pagar-btn"
+                (click)="generarReferencia(servicio.id)"
+                [disabled]="servicio.estado === 'vencido'">
+                <span class="btn-icon">💳</span>
+                {{ servicio.estado === 'vencido' ? 'Vencido' : 'Generar Referencia' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensaje si no hay servicios pendientes -->
+        <div class="empty-state" *ngIf="serviciosPendientes.length === 0">
+          <div class="empty-icon">✅</div>
+          <h3>¡Excelente!</h3>
+          <p>No tienes servicios pendientes de pago</p>
+        </div>
+      </div>
+
+      <!-- Vista de Historial de Pagos -->
+      <div class="servicios-container" *ngIf="vistaActual === 'historial'">
+        <div class="servicios-grid">
+          <div 
+            class="servicio-card pagado" 
+            *ngFor="let servicio of serviciosPagados">
+            
+            <div class="servicio-header">
+              <div class="servicio-tipo">
+                <span class="tipo-icon">{{ getTipoIcon(servicio.tipo) }}</span>
+                <span class="tipo-texto">{{ servicio.tipo | titlecase }}</span>
+              </div>
+              <div class="servicio-estado">
+                <span class="estado-badge estado-pagado">Pagado</span>
+              </div>
+            </div>
+
+            <div class="servicio-body">
+              <h3 class="servicio-concepto">{{ servicio.concepto }}</h3>
+              <div class="servicio-detalles">
+                <div class="detalle-item">
+                  <span class="detalle-label">Monto:</span>
+                  <span class="detalle-valor monto">${{ servicio.monto.toFixed(2) }}</span>
+                </div>
+                <div class="detalle-item">
+                  <span class="detalle-label">Fecha de Pago:</span>
+                  <span class="detalle-valor">{{ servicio.fechaPago }}</span>
+                </div>
+                <div class="detalle-item">
+                  <span class="detalle-label">Referencia:</span>
+                  <span class="detalle-valor referencia">{{ servicio.referencia }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="servicio-actions">
+              <button 
+                class="action-btn download-btn"
+                (click)="descargarComprobante(servicio.id)">
+                <span class="btn-icon">📄</span>
+                Descargar Comprobante
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensaje si no hay historial -->
+        <div class="empty-state" *ngIf="serviciosPagados.length === 0">
+          <div class="empty-icon">📋</div>
+          <h3>Sin historial</h3>
+          <p>No hay registros de pagos anteriores</p>
+        </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="info-section">
+        <div class="info-card">
+          <div class="info-header">
+            <h3>ℹ️ Información Importante</h3>
+          </div>
+          <div class="info-content">
+            <ul class="info-list">
+              <li>💡 Los pagos pueden realizarse en bancos, tiendas de conveniencia o en línea</li>
+              <li>⏰ Los servicios vencidos requieren gestión presencial en Control Escolar</li>
+              <li>📱 Guarda siempre tu comprobante de pago como respaldo</li>
+              <li>🔄 Los pagos se reflejan en el sistema en un máximo de 24 horas</li>
+              <li>📞 Para dudas contacta a Control Escolar: ext. 1234</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -75,7 +75,8 @@
 .navbar-menu li:nth-child(3) a::after { content: "🎓"; }
 .navbar-menu li:nth-child(4) a::after { content: "📅"; }
 .navbar-menu li:nth-child(5) a::after { content: "💬"; }
-.navbar-menu li:nth-child(6) a::after { content: "🚪"; }
+.navbar-menu li:nth-child(6) a::after { content: "�"; }
+.navbar-menu li:nth-child(7) a::after { content: "�🚪"; }
 
 .navbar-menu a::after {
   float: right;

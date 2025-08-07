@@ -5,6 +5,7 @@ import { KardexComponent } from './kardex/kardex';
 import { CalificacionesComponent } from './calificaciones/calificaciones';
 import { HorarioComponent } from './horario/horario';
 import { MensajesComponent } from './mensajes/mensajes';
+import { PagoServiciosComponent } from './pago-servicios/pago-servicios';
 
 
 export const routes: Routes = [
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'mensajes',
     component: MensajesComponent
+  },
+  {
+    path: 'pago-servicios',
+    component: PagoServiciosComponent
   },
   {
     path: '**',

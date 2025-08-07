@@ -4,7 +4,7 @@ Un sistema completo de información estudiantil desarrollado con Angular 18+ que
 
 ## 📋 Descripción del Proyecto
 
-El Sistema de Información Estudiantil (SIE) es una aplicación web moderna diseñada para facilitar el acceso a la información académica de los estudiantes. La aplicación cuenta con una interfaz intuitiva y responsive que se adapta a diferentes dispositivos.
+El Sistema de Integración Escolar (SIE) es una aplicación web moderna diseñada para facilitar el acceso a la información académica de los estudiantes. La aplicación cuenta con una interfaz intuitiva y responsive que se adapta a diferentes dispositivos.
 
 ## 🏗️ Estructura del Proyecto
 
@@ -36,6 +36,10 @@ SIETopicos/
 │   │   │   ├── mensajes.ts
 │   │   │   ├── mensajes.html
 │   │   │   └── mensajes.css
+│   │   ├── pago-servicios/        # Gestión de pagos y servicios
+│   │   │   ├── pago-servicios.ts
+│   │   │   ├── pago-servicios.html
+│   │   │   └── pago-servicios.css
 │   │   ├── navbar/                # Barra de navegación
 │   │   │   ├── navbar.ts
 │   │   │   ├── navbar.html
@@ -69,6 +73,7 @@ SIETopicos/
 - **🎓 Calificaciones**: Calificaciones del cuatrimestre actual con estadísticas
 - **📅 Horario**: Horario de clases semanal con detalle de materias y profesores
 - **💬 Mensajes**: Centro de mensajes con filtros y búsqueda
+- **💳 Pago de Servicios**: Gestión de pagos, consulta de adeudos y historial financiero
 - **🧭 Navegación**: Barra de navegación responsive con diseño adaptativo
 - **🎨 Diseño Responsive**: Compatible con desktop, tablet y móvil
 
@@ -262,6 +267,14 @@ La aplicación está optimizada para diferentes tamaños de pantalla:
 - Búsqueda por contenido
 - Vista detallada de mensajes
 - Acciones (responder, archivar, marcar importante)
+
+### 💳 Pago de Servicios
+- Consulta de servicios pendientes de pago
+- Visualización de adeudos y fechas de vencimiento
+- Generación de referencias de pago
+- Historial de pagos realizados
+- Descarga de comprobantes de pago
+- Alertas por servicios vencidos
 
 ## 🤝 Contribución
 
