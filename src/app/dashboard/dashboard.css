@@ -1,9 +1,7 @@
-/* Dashboard Styles */
 :host {
   display: block;
 }
 
-/* Welcome Section */
 .welcome-section {
   margin-bottom: 2rem;
 }
