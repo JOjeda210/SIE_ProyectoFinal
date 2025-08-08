@@ -292,12 +292,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 - **Jesús Osbaldo Ojeda Aké** - *Desarrollador backend* - [JOjeda210](https://github.com/JOjeda210)
 
-## 🏫 Universidad
-
-**Universidad Politécnica de Querétaro (UPQRO)**
-- Carrera: Ingeniería en Sistemas Computacionales
-- Cuatrimestre: 3
-- Materia: Tópicos de Calidad para el Diseño de software
 
 ---
 
