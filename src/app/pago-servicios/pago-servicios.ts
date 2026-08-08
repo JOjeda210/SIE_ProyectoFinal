@@ -124,12 +124,12 @@ export class PagoServiciosComponent {
   // Obtener icono según el tipo de servicio
   getTipoIcon(tipo: string): string {
     switch (tipo) {
-      case 'colegiatura': return '🎓';
-      case 'credencial': return '🆔';
-      case 'seguro': return '🏥';
-      case 'examen': return '📝';
-      case 'multa': return '⚠️';
-      default: return '💰';
+      case 'colegiatura': return 'bi-mortarboard-fill';
+      case 'credencial': return 'bi-person-vcard';
+      case 'seguro': return 'bi-hospital';
+      case 'examen': return 'bi-pencil-square';
+      case 'multa': return 'bi-exclamation-triangle-fill';
+      default: return 'bi-cash-coin';
     }
   }
 }

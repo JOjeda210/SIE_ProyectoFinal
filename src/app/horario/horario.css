@@ -216,7 +216,8 @@ h2 {
 }
 
 .icon-clock::before {
-  content: '🕒';
+  content: '\f291';
+  font-family: "bootstrap-icons";
   margin-right: 0.3rem;
 }
 
@@ -243,7 +244,8 @@ h2 {
 }
 
 .icon-location::before {
-  content: '📍';
+  content: '\f3e7';
+  font-family: "bootstrap-icons";
   margin-right: 0.2rem;
 }
 

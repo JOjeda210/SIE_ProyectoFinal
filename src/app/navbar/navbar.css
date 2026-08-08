@@ -70,16 +70,17 @@
 }
 
 /* Iconos para los elementos del menú */
-.navbar-menu li:nth-child(1) a::after { content: "🏠"; }
-.navbar-menu li:nth-child(2) a::after { content: "📊"; }
-.navbar-menu li:nth-child(3) a::after { content: "🎓"; }
-.navbar-menu li:nth-child(4) a::after { content: "📅"; }
-.navbar-menu li:nth-child(5) a::after { content: "💬"; }
-.navbar-menu li:nth-child(6) a::after { content: "�"; }
-.navbar-menu li:nth-child(7) a::after { content: "�🚪"; }
+.navbar-menu li:nth-child(1) a::after { content: "\f424"; }
+.navbar-menu li:nth-child(2) a::after { content: "\f17a"; }
+.navbar-menu li:nth-child(3) a::after { content: "\f6fd"; }
+.navbar-menu li:nth-child(4) a::after { content: "\f1e7"; }
+.navbar-menu li:nth-child(5) a::after { content: "\f249"; }
+.navbar-menu li:nth-child(6) a::after { content: "\f2d9"; }
+.navbar-menu li:nth-child(7) a::after { content: "\f1c3"; }
 
 .navbar-menu a::after {
   float: right;
+  font-family: "bootstrap-icons";
   font-size: 1.1rem;
   opacity: 0.8;
 }

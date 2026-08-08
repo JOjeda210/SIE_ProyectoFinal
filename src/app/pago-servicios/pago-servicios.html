@@ -8,7 +8,7 @@
       <!-- Header Section -->
       <div class="header-section">
         <div class="page-title">
-          <h1>💳 Pago de Servicios</h1>
+          <h1><i class="bi bi-credit-card-2-front"></i> Pago de Servicios</h1>
           <p>Gestiona tus pagos y consulta tu historial financiero</p>
         </div>
         
@@ -33,13 +33,13 @@
           class="tab-btn" 
           [class.active]="vistaActual === 'pendientes'"
           (click)="cambiarVista('pendientes')">
-          🔔 Servicios Pendientes
+          <i class="bi bi-bell"></i> Servicios Pendientes
         </button>
         <button 
           class="tab-btn" 
           [class.active]="vistaActual === 'historial'"
           (click)="cambiarVista('historial')">
-          📋 Historial de Pagos
+          <i class="bi bi-clock-history"></i> Historial de Pagos
         </button>
       </div>
 
@@ -53,7 +53,7 @@
             
             <div class="servicio-header">
               <div class="servicio-tipo">
-                <span class="tipo-icon">{{ getTipoIcon(servicio.tipo) }}</span>
+                <span class="tipo-icon"><i class="bi {{ getTipoIcon(servicio.tipo) }}"></i></span>
                 <span class="tipo-texto">{{ servicio.tipo | titlecase }}</span>
               </div>
               <div class="servicio-estado">
@@ -86,7 +86,7 @@
                 class="action-btn pagar-btn"
                 (click)="generarReferencia(servicio.id)"
                 [disabled]="servicio.estado === 'vencido'">
-                <span class="btn-icon">💳</span>
+                <span class="btn-icon"><i class="bi bi-credit-card"></i></span>
                 {{ servicio.estado === 'vencido' ? 'Vencido' : 'Generar Referencia' }}
               </button>
             </div>
@@ -95,7 +95,7 @@
 
         <!-- Mensaje si no hay servicios pendientes -->
         <div class="empty-state" *ngIf="serviciosPendientes.length === 0">
-          <div class="empty-icon">✅</div>
+          <div class="empty-icon"><i class="bi bi-check-circle"></i></div>
           <h3>¡Excelente!</h3>
           <p>No tienes servicios pendientes de pago</p>
         </div>
@@ -110,7 +110,7 @@
             
             <div class="servicio-header">
               <div class="servicio-tipo">
-                <span class="tipo-icon">{{ getTipoIcon(servicio.tipo) }}</span>
+                <span class="tipo-icon"><i class="bi {{ getTipoIcon(servicio.tipo) }}"></i></span>
                 <span class="tipo-texto">{{ servicio.tipo | titlecase }}</span>
               </div>
               <div class="servicio-estado">
@@ -140,7 +140,7 @@
               <button 
                 class="action-btn download-btn"
                 (click)="descargarComprobante(servicio.id)">
-                <span class="btn-icon">📄</span>
+                <span class="btn-icon"><i class="bi bi-file-earmark-arrow-down"></i></span>
                 Descargar Comprobante
               </button>
             </div>
@@ -149,7 +149,7 @@
 
         <!-- Mensaje si no hay historial -->
         <div class="empty-state" *ngIf="serviciosPagados.length === 0">
-          <div class="empty-icon">📋</div>
+          <div class="empty-icon"><i class="bi bi-inbox"></i></div>
           <h3>Sin historial</h3>
           <p>No hay registros de pagos anteriores</p>
         </div>
@@ -159,15 +159,15 @@
       <div class="info-section">
         <div class="info-card">
           <div class="info-header">
-            <h3>ℹ️ Información Importante</h3>
+            <h3><i class="bi bi-info-circle"></i> Información Importante</h3>
           </div>
           <div class="info-content">
             <ul class="info-list">
-              <li>💡 Los pagos pueden realizarse en bancos, tiendas de conveniencia o en línea</li>
-              <li>⏰ Los servicios vencidos requieren gestión presencial en Control Escolar</li>
-              <li>📱 Guarda siempre tu comprobante de pago como respaldo</li>
-              <li>🔄 Los pagos se reflejan en el sistema en un máximo de 24 horas</li>
-              <li>📞 Para dudas contacta a Control Escolar: ext. 1234</li>
+              <li><i class="bi bi-lightbulb"></i> Los pagos pueden realizarse en bancos, tiendas de conveniencia o en línea</li>
+              <li><i class="bi bi-alarm"></i> Los servicios vencidos requieren gestión presencial en Control Escolar</li>
+              <li><i class="bi bi-phone"></i> Guarda siempre tu comprobante de pago como respaldo</li>
+              <li><i class="bi bi-arrow-repeat"></i> Los pagos se reflejan en el sistema en un máximo de 24 horas</li>
+              <li><i class="bi bi-telephone"></i> Para dudas contacta a Control Escolar: ext. 1234</li>
             </ul>
           </div>
         </div>
